@@ -1,0 +1,33 @@
+http://localhost:3000/employees
+
+####
+
+http://localhost:3000/employees/2
+
+####
+
+POST http://localhost:3000/employees HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Caroline Felício",
+    "salary": "1500",
+    "created_at": "Wed, 21 Oct 2015 18:27:50 GMT",
+    "updated_at": "Wed, 21 Oct 2015 18:27:50 GMT"
+}
+
+####
+
+PUT http://localhost:3000/employees/3 HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Murilo Felício",
+    "salary": "100",
+    "created_at": "Wed, 21 Oct 2015 18:27:50 GMT",
+    "updated_at": "Wed, 21 Oct 2015 18:27:50 GMT"
+}
+
+####
+
+DELETE http://localhost:3000/employees/1

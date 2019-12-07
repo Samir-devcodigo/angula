@@ -1,0 +1,29 @@
+.card {
+  margin-top: 40px;
+
+  .card-image {
+    min-height: 220px;
+    background: #313131;
+  }
+
+  .card-title {
+    text-transform: uppercase;
+    font-weight: 800;
+    color: #fff;
+  }
+
+  .form-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+
+    button {
+      height: auto;
+      padding: 16px 40px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+  }
+}

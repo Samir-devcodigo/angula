@@ -1,0 +1,78 @@
+<div class="card mt-3">
+  <div class="card-header">
+    <div class="float-left">
+      <h4>{{ pageTitle }}</h4>
+    </div>
+    <div class="float-right">
+      <button type="button" class="btn btn-secondary" [routerLink]="['/']">
+        Voltar
+      </button>
+    </div>
+  </div>
+  <div class="card-body">
+    <form class="needs-validation mt-3" novalidate [formGroup]="form">
+      <div class="form-row">
+        <div class="col-md-10 mb-3">
+          <label for="name">Nome completo</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            placeholder="Nome completo"
+            value=""
+            required
+            formControlName="name"
+            [ngClass]="{ 'is-invalid': submitted && hasError('name') }"
+          />
+          <div
+            class="invalid-feedback"
+            *ngIf="hasError('name') && hasError('name')['required']"
+          >
+            Informe o nome do funcionário
+          </div>
+          <div
+            class="invalid-feedback"
+            *ngIf="hasError('name') && hasError('name')['minlength']"
+          >
+            O nome do funcionário precisa ter no mínimo
+            {{ hasError("name")["minlength"].requiredLength }} caracteres
+          </div>
+          <div
+            class="invalid-feedback"
+            *ngIf="hasError('name') && hasError('name')['maxlength']"
+          >
+            O nome do funcionário precisa ter no máximo
+            {{ hasError("name")["maxlength"].requiredLength }} dígitos
+          </div>
+        </div>
+        <div class="col-md-2 mb-3">
+          <label for="salary">Salário</label>
+          <input
+            type="text"
+            class="form-control"
+            id="salary"
+            placeholder="Salário"
+            value=""
+            required
+            formControlName="salary"
+            [ngClass]="{ 'is-invalid': submitted && hasError('salary') }"
+          />
+          <div
+            class="invalid-feedback"
+            *ngIf="hasError('salary') && hasError('salary')['required']"
+          >
+            Informe o salário do funcionário
+          </div>
+        </div>
+      </div>
+      <div class="mt-3 d-flex justify-content-between align-items-center">
+        <button class="btn btn-primary" type="submit" (click)="onSubmit()">
+          Salvar
+        </button>
+        <button class="btn btn-default" (click)="onCancel()">
+          Limpar form
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

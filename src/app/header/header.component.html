@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container">
+    <a class="navbar-brand" [routerLink]="['/']"><img src="./assets/images/logo.png" alt=""></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['/']">Empregados <span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<!-- <nav class="light-blue lighten-1" role="navigation">
+  <div class="nav-wrapper container">
+    <a routerLink="" id="logo-container" class="brand-logo">
+      <img src="./assets/images/logo.png" alt="">
+    </a>
+    <ul class="right hide-on-med-and-down">
+      <li routerLinkActive="active"><a routerLink="cadastro">Add novo</a></li>
+    </ul>
+    <ul id="nav-mobile" class="sidenav">
+      <li routerLinkActive="active"><a routerLink="cadastro">Add novo</a></li>
+    </ul>
+    <a data-target="nav-mobile" class="sidenav-trigger">
+      <i class="material-icons">menu</i>
+    </a>
+  </div>
+</nav> -->

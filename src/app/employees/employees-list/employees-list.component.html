@@ -1,0 +1,81 @@
+<div class="card mt-3">
+  <div class="card-header">
+    <div class="float-left">
+      <h4>Empregados</h4>
+    </div>
+    <div class="float-right">
+      <button type="button" class="btn btn-primary" [routerLink]="['novo']">
+        Novo empregado
+      </button>
+    </div>
+  </div>
+  <div class="card-body">
+    <div
+      class="table-responsive"
+      *ngIf="employees$ | async as employees; else loading"
+    >
+      <table
+        class="table table-hover"
+        *ngIf="employees.length > 0; else emptyResults"
+      >
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Empregado</th>
+            <th>Salário</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let employee of employees">
+            <td>{{ employee.id }}</td>
+            <td>{{ employee.name }}</td>
+            <td>{{ employee.salary }}</td>
+            <td>
+              <span class="float-right">
+                <button
+                  class="btn btn-outline-warning mb-1 btn-sm mr-3"
+                  (click)="onEdit(employee.id)"
+                >
+                  Atualizar
+                </button>
+
+                <button
+                  class="btn btn-outline-danger mb-1 btn-sm"
+                  (click)="onDelete(employee)"
+                >
+                  Remover
+                </button>
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <ng-template #emptyResults>
+      <div class="text-center w-100 p-5">
+        <p><i class="fas fa-archive"></i></p>
+        <p><span>Não existem empregados cadastrados nessa lista!</span></p>
+      </div>
+    </ng-template>
+
+    <ng-template #loading>
+      <div class="text-center w-100 p-5">
+        <p><i class="fas fa-circle-notch fa-spin"></i></p>
+        <p><span>Carregando empregados...</span></p>
+      </div>
+    </ng-template>
+  </div>
+</div>
+
+<ng-template #deleteModal>
+  <div class="modal-body text-center">
+    <p>Tem certeza que deseja remover esse empregado?</p>
+    <button type="button" class="btn btn-default" (click)="onConfirmDelete()">
+      Sim
+    </button>
+    <button type="button" class="btn btn-primary" (click)="onDeclineDelete()">
+      Não
+    </button>
+  </div>
+</ng-template>
